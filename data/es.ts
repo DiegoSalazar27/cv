@@ -1,7 +1,7 @@
 import { getAssetPath } from "@/app/lib/utils";
 import { Data } from "@/types/data";
-import { SiGithub, SiLinkedin, SiX } from "@icons-pack/react-simple-icons";
-import { Calendar, Mail, Send } from "lucide-react";
+import { SiGithub, SiLinkedin } from "@icons-pack/react-simple-icons";
+import { Mail } from "lucide-react";
 
 const data: Data = {
   name: "Diego Salazar",

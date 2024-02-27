@@ -4,10 +4,10 @@ import { Github, Mail } from 'lucide-react';
 const data: Data = {
   name: '',
   lastUpdatedAt: new Date(),
-  status: {
-    color: 'active',
-    label: '',
-  },
+  // status: {
+  //   color: 'active',
+  //   label: '',
+  // },
   location: '',
   bio: '',
   summary: '',
