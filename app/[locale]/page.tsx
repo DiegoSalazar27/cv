@@ -1,15 +1,15 @@
-import { ProjectCard } from '@/app/components/project-card';
-import Section from '@/app/components/section';
-import ToolBar from '@/app/components/toolbar';
-import { Badge } from '@/app/components/ui/badge';
-import { Button } from '@/app/components/ui/button';
-import { Card, CardContent, CardHeader } from '@/app/components/ui/card';
-import { getData } from '@/data';
-import { getI18n, getStaticParams } from '@/locales/server';
-import { format } from 'date-fns';
-import { Globe } from 'lucide-react';
-import { setStaticParamsLocale } from 'next-international/server';
-import Image from 'next/image';
+import { ProjectCard } from "@/app/components/project-card";
+import Section from "@/app/components/section";
+import ToolBar from "@/app/components/toolbar";
+import { Badge } from "@/app/components/ui/badge";
+import { Button } from "@/app/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/app/components/ui/card";
+import { getData } from "@/data";
+import { getI18n, getStaticParams } from "@/locales/server";
+import { format } from "date-fns";
+import { Globe } from "lucide-react";
+import { setStaticParamsLocale } from "next-international/server";
+import Image from "next/image";
 
 export default async function Home({
   params: { locale },
@@ -25,7 +25,7 @@ export default async function Home({
     <main className="container max-w-2xl pt-10 pb-16 sm:py-16 mb-6 print:mb-0 print:py-6 space-y-8">
       <section>
         <p className="text-right italic text-sm mb-4 text-muted-foreground">
-          <time>{format(new Date(data.lastUpdatedAt), 'yyyy-MM-dd')}</time>
+          <time>{format(new Date(data.lastUpdatedAt), "yyyy-MM-dd")}</time>
         </p>
         <div className="flex flex-col sm:flex-row gap-6">
           <div>
@@ -53,13 +53,23 @@ export default async function Home({
         </div>
       </section>
 
-      <Section title={t('about')}>
+      <Section title={t("about")}>
         <p className="text-base text-pretty text-muted-foreground leading-relaxed">
           {data.summary}
         </p>
       </Section>
 
-      <Section title={t('workExperience')}>
+      <Section title={t("skills")} avoidPageBreak>
+        <div className="flex flex-wrap gap-2">
+          {data.skills.map((skill) => (
+            <Badge className="py-1" variant="outline" key={skill}>
+              {skill}
+            </Badge>
+          ))}
+        </div>
+      </Section>
+
+      <Section title={t("workExperience")}>
         {data.work.map((work) => {
           return (
             <Card key={work.company} className="print:shadow-none">
@@ -117,7 +127,7 @@ export default async function Home({
       </Section>
 
       {data.education.length > 0 && (
-        <Section title={t('education')}>
+        <Section title={t("education")}>
           {data.education.map((education) => {
             return (
               <Card key={education.school} className="print:shadow-none">
@@ -143,17 +153,7 @@ export default async function Home({
         </Section>
       )}
 
-      <Section title={t('skills')} avoidPageBreak>
-        <div className="flex flex-wrap gap-2">
-          {data.skills.map((skill) => (
-            <Badge variant="outline" key={skill}>
-              {skill}
-            </Badge>
-          ))}
-        </div>
-      </Section>
-
-      <Section title={t('projects')}>
+      <Section title={t("projects")}>
         <div className="overflow-hidden">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {data.projects.map((project) => (
@@ -163,7 +163,7 @@ export default async function Home({
         </div>
       </Section>
 
-      <Section title={t('contacts')} avoidPageBreak>
+      <Section title={t("contacts")} avoidPageBreak>
         <div className="flex flex-wrap gap-2">
           {data.contacts.map((contact) => (
             <Button size="sm" key={contact.href} variant="outline" asChild>
@@ -171,7 +171,7 @@ export default async function Home({
                 <contact.icon className="mr-2" size={15} />
                 {contact.label}
                 <span className="hidden print:block">
-                  : {contact.href.replace(/mailto:|tel:/, '')}
+                  : {contact.href.replace(/mailto:|tel:/, "")}
                 </span>
               </a>
             </Button>
@@ -179,7 +179,7 @@ export default async function Home({
         </div>
       </Section>
 
-      <Section title={t('links')} avoidPageBreak>
+      <Section title={t("links")} avoidPageBreak>
         <div className="flex flex-wrap gap-2">
           {data.links.map((link) => (
             <Button size="sm" key={link.href} variant="outline" asChild>
@@ -187,7 +187,7 @@ export default async function Home({
                 <link.icon className="mr-2" size={15} />
                 {link.label}
                 <span className="hidden print:block">
-                  : {link.href.replace(/mailto:|tel:/, '')}
+                  : {link.href.replace(/mailto:|tel:/, "")}
                 </span>
               </a>
             </Button>

@@ -10,5 +10,5 @@ export const {
   I18nProviderClient,
 } = createI18nClient({
   en: () => import('./en'),
-  ja: () => import('./ja'),
+  es: () => import('./es'),
 });

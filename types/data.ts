@@ -41,16 +41,16 @@ export type Link = {
   icon: LucideIcon | IconType;
 };
 
-export type Status = {
-  color: 'active' | 'disabled' | 'pending' | 'blocked';
-  label: string;
-};
+// export type Status = {
+//   color: 'active' | 'disabled' | 'pending' | 'blocked';
+//   label: string;
+// };
 
 export type Data = {
   name: string;
   globalName?: string;
   lastUpdatedAt: Date;
-  status: Status | null;
+  // status: Status | null;
   location: string;
   bio: string;
   summary: string;

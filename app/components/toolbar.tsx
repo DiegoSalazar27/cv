@@ -14,7 +14,7 @@ export default function ToolBar({ data }: { data: Data }) {
 
   return (
     <div className="fixed flex *:shrink-0 items-center w-max shadow-lg backdrop-blur p-2 bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-muted/10 border">
-      {data.status && <Status status={data.status} />}
+      {/* {data.status && <Status status={data.status} />} */}
       <ContactButtons contacts={data.contacts} />
       {!noFeatures && (
         <div className="hidden lg:contents">
